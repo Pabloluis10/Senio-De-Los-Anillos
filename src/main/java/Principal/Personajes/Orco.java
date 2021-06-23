@@ -6,7 +6,7 @@ package Principal.Personajes;
 public class Orco extends Bestia {
 
     public Orco(String nombre) {
-        super(300, nombre, 30);
+        super(300, nombre, 25);
     }
 
     @Override
