@@ -12,7 +12,7 @@ public class Elfo extends Heroe{
     
     @Override
     public void atacarRival(Personaje rival){
-        if(rival instanceof Orcos){//si ataca a un orco
+        if(rival instanceof Orco){//si ataca a un orco
             int potenciaOfenciva = valorAtaque(10);
             if(potenciaOfenciva > rival.getArmadura()){
                 int daño = potenciaOfenciva - rival.getArmadura();
