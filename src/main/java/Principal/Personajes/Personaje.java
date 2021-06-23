@@ -23,6 +23,7 @@ public class Personaje {
         this.armadura = armadura;
         this.LIMITE_ATAQUE = LIMITE_ATAQUE;
         this.DADOS = DADOS;
+        this.figuraMuerto = iniciarFiguraMuerto();
     }
     
     //metodos
@@ -41,12 +42,27 @@ public class Personaje {
         int potenciaOfenciva = valorAtaque(0);
         if(potenciaOfenciva > rival.getArmadura()){
             int daño = potenciaOfenciva - rival.getArmadura();
+            if(rival.getVida()< daño){//si la vida es menor al daño que se le hara al rival
+                daño = rival.getVida();//para dejar la vida en 0
+            }
             rival.recibirDaño(daño);
         }
     }
     
     public void recibirDaño(int daño){
         vida -= daño;
+    }
+    
+    public String[] iniciarFiguraMuerto(){
+        String [] figura = {"           ------   *- *\\ ",
+                            " |*|_______------.*       * ",
+                            " |_________       |    x  * ",
+                            "  _________       | |-    * ",
+                            " |  _______       |    X  * ",
+                            " |.|       ------ *      /   ",
+                            "           ------   * -*   "};
+       
+        return figura;
     }
     //getters 
     public int getVida() {
@@ -63,9 +79,5 @@ public class Personaje {
 
     public String[] getFiguraMuerto() {
         return figuraMuerto;
-    }
-    
-    //metodos
-    
-    
+    }    
 }
