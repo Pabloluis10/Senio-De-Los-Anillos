@@ -117,7 +117,8 @@ public class Juego {
             System.out.println("¡¡¡¡¡ ROUND "+contadorPeleas);
             for(int i=0; i<cantBatallas; i++){
                 if(heroes[i]!= null && bestias[i]!= null) {
-                    System.out.println("Pela entre: "+heroes[i].getNombre()+" y "+bestias[i].getNombre());
+                    System.out.println("Pela entre: "+heroes[i].getNombre()+" vida: "+heroes[i].getVida()+" y "+bestias[i].getNombre()+" vida: "+bestias[i].getVida());
+                    
                     heroes[i].atacarRival(bestias[i]);
                     bestias[i].atacarRival(heroes[i]);
                     dibujarPelea(heroes[i], bestias[i]);
