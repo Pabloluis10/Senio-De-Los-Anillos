@@ -7,7 +7,7 @@ public class Heroe extends Personaje {
     //atributos
     protected String [] figura;
     
-    public Heroe(int vida, int nombre, int armadura) {
+    public Heroe(int vida, String nombre, int armadura) {
         super(vida, nombre, armadura, 100, 2);
         this.figura = iniciarFigura();
     }

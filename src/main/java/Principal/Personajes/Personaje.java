@@ -10,14 +10,14 @@ public class Personaje {
     Random aleatorio = new Random();
     //Atributos
     protected int vida;
-    protected int nombre;
+    protected String nombre;
     protected int armadura;
     protected final int LIMITE_ATAQUE;
     protected final int DADOS;
     protected String [] figuraMuerto;
 
     
-    public Personaje(int vida, int nombre, int armadura, int LIMITE_ATAQUE, int DADOS) {
+    public Personaje(int vida, String nombre, int armadura, int LIMITE_ATAQUE, int DADOS) {
         this.vida = vida;
         this.nombre = nombre;
         this.armadura = armadura;
@@ -27,10 +27,11 @@ public class Personaje {
     }
     
     //metodos
-    public int valorAtaque(int aumento){
+    protected int valorAtaque(int aumento){
         int valorMasALto=0;
         for(int i=0; i<this.DADOS; i++){
-            int aux = aleatorio.nextInt(LIMITE_ATAQUE+1);
+            int rangoAtaque = aumento + LIMITE_ATAQUE +1;
+            int aux = aleatorio.nextInt(rangoAtaque);
             if(aux > valorMasALto){//elegimos el valor más alto
                 valorMasALto = aux;
             }
@@ -53,7 +54,7 @@ public class Personaje {
         vida -= daño;
     }
     
-    public String[] iniciarFiguraMuerto(){
+    private String[] iniciarFiguraMuerto(){
         String [] figura = {"           ------   *- *\\ ",
                             " |*|_______------.*       * ",
                             " |_________       |    x  * ",
@@ -69,7 +70,7 @@ public class Personaje {
         return vida;
     }
 
-    public int getNombre() {
+    public String getNombre() {
         return nombre;
     }
     
